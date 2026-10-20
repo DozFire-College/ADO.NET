@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Студенты</title>
+</head>
+<body>
+    <main class="container">
+        <h1>Студенты</h1>
+        <p class="subtitle">Список студентов и основная информация</p>
+        <button id="std_btn" onclick="loadStudents()">Отобразить студентов</button>
+        <button id="grp_btn" onclick="loadGroups()">Отобразить группы</button>
+        <button onclick="findGroupsById(1)">Группа 1</button>
+        <button onclick="findGroupsById(2)">Группа 2</button>
+        <p id="loadStatus" role="status" aria-live="polite"></p>
+        <table id="studentsTable" style="display: none">
+            <caption>Список студентов</caption>
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Имя</th>
+                    <th scope="col">Фамилия</th>
+                    <th scope="col">Возраст</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <table id="groupsTable" style="display: none">
+            <caption>Список групп</caption>
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Название группы</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <script src="js/routers.js"></script>
+    </main>
+</body>
+</html>
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 16px;
+    font-family: Arial, sans-serif;
+    color: #243047;
+    background: #f4f6f9;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 28px;
+    background: #fff;
+    border: 1px solid #e5e9f0;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(30, 50, 80, 0.05);
+    overflow-x: auto;
+}
+
+h1 {
+    margin: 0 0 8px;
+    font-size: 30px;
+}
+
+.subtitle {
+    margin: 0 0 24px;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+button {
+    margin: 0 8px 12px 0;
+    padding: 11px 18px;
+    font: inherit;
+    font-weight: 600;
+    color: #fff;
+    background: #2563eb;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+    button:hover {
+        background: #1d4ed8;
+    }
+
+    button:focus-visible {
+        outline: 3px solid #93c5fd;
+        outline-offset: 3px;
+    }
+
+#grp_btn {
+    color: #1d4ed8;
+    background: #eff6ff;
+}
+
+    #grp_btn:hover {
+        background: #dbeafe;
+    }
+
+table {
+    width: 100%;
+    margin-top: 16px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+caption {
+    padding: 0 0 12px;
+    font-weight: 600;
+    text-align: left;
+}
+
+th,
+td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #e5e9f0;
+}
+
+th {
+    color: #475569;
+    background: #f8fafc;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+tbody tr:hover {
+    background: #f5f9ff;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 20px 12px;
+    }
+
+    .container {
+        padding: 18px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    button {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    th,
+    td {
+        padding: 12px 10px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    button {
+        transition: none;
+    }
+}
+</style>
